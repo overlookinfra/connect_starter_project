@@ -1,0 +1,28 @@
+# ---------------------------------------------------------------------------
+# This is an example inventory.yaml
+# To read more about inventory files, see https://pup.pt/bolt-inventory
+#
+# There are two example targets. The example below uses fake locations for
+# each target's "uri" data. In order to use this example data you must update
+# the "uri" values to point to real targets.
+#
+# This example shows the format for a common workflow used to connect to
+# targets, specifically targets accessed over WinRM using a password
+# ---------------------------------------------------------------------------
+
+# Config data in this top-level location will apply to all targets in the
+# inventory file that do not set config individually.
+config:
+  transport: winrm
+  ssh:
+    user:
+      _plugin: puppet_connect_data
+      key: winrm_target_user
+    password:
+      _plugin: puppet_connect_data
+      key: winrm_password
+targets:
+  - name: winrm_target_1
+    uri: winrm_target_1.example.com # This URI needs to be replaced with a real target
+  - name: winrm_target_2
+    uri: winrm_target_2.example.com # This URI needs to be replaced with a real target

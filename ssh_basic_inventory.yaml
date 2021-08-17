@@ -1,0 +1,28 @@
+# ---------------------------------------------------------------------------
+# This is an example inventory.yaml
+# To read more about inventory files, see https://pup.pt/bolt-inventory
+#
+# There are two example targets. The example below uses fake locations for
+# each target's "uri" data. In order to use this example data you must update
+# the "uri" values to point to real targets.
+#
+# This example shows the format for a common workflow used to connect to
+# targets, specifically targets accessed over SSH using an SSH private key
+# ---------------------------------------------------------------------------
+
+# Config data in this top-level location will apply to all targets in the
+# inventory file that do not set config individually.
+config:
+  transport: ssh
+  ssh:
+    user:
+      _plugin: puppet_connect_data
+      key: ssh_target_user
+    private-key:
+      _plugin: puppet_connect_data
+      key: ssh_target_private_key
+targets:
+  - name: ssh_target_1
+    uri: ssh_target_1.example.com # This URI needs to be replaced with a real target
+  - name: ssh_target_2
+    uri: ssh_target_2.example.com # This URI needs to be replaced with a real target
