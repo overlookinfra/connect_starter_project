@@ -19,8 +19,9 @@ config:
       _plugin: puppet_connect_data
       key: ssh_target_user
     private-key:
-      _plugin: puppet_connect_data
-      key: ssh_target_private_key
+      key-data:
+        _plugin: puppet_connect_data
+        key: ssh_target_private_key
 targets:
   - name: ssh_target_1
     uri: ssh_target_1.example.com # This URI needs to be replaced with a real target
